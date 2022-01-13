@@ -4,38 +4,38 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ConnectorTest {
+class DcConnectorTest {
 
     @Test
     void shouldInitializeVoltage() {
         int voltage = 1;
 
-        Connector connector = new Connector(voltage, 1, voltage);
+        DcConnector dcConnector = new DcConnector(voltage, 1, voltage);
 
-        assertEquals(voltage, connector.getVoltageInV());
+        assertEquals(voltage, dcConnector.getVoltageInV());
     }
 
     @Test
     void shouldThrowExceptionOnZeroVoltage() {
         int voltage = 0;
 
-        assertThrows(IllegalArgumentException.class, () -> new Connector(voltage, 1, voltage));
+        assertThrows(IllegalArgumentException.class, () -> new DcConnector(voltage, 1, voltage));
     }
 
     @Test
     void shouldThrowExceptionOn1001Voltage() {
         int voltage = 1001;
 
-        assertThrows(IllegalArgumentException.class, () -> new Connector(voltage, 1, voltage));
+        assertThrows(IllegalArgumentException.class, () -> new DcConnector(voltage, 1, voltage));
     }
 
     @Test
     void shouldAcceptVoltage1000() {
         int voltage = 1000;
 
-        Connector connector = new Connector(voltage, 1, voltage);
+        DcConnector dcConnector = new DcConnector(voltage, 1, voltage);
 
-        assertEquals(1000, connector.getVoltageInV());
+        assertEquals(1000, dcConnector.getVoltageInV());
     }
 
     @Test
@@ -43,9 +43,9 @@ class ConnectorTest {
         int voltage = 1;
         int power = 1;
 
-        Connector connector = new Connector(voltage, power, 1);
+        DcConnector dcConnector = new DcConnector(voltage, power, 1);
 
-        assertEquals(power, connector.getPowerInKW());
+        assertEquals(power, dcConnector.getPowerInKW());
     }
 
     @Test
@@ -53,7 +53,7 @@ class ConnectorTest {
         int voltage = 1;
         int power = 0;
 
-        assertThrows(IllegalArgumentException.class, () -> new Connector(voltage, power, 1));
+        assertThrows(IllegalArgumentException.class, () -> new DcConnector(voltage, power, 1));
     }
 
     @Test
@@ -61,7 +61,7 @@ class ConnectorTest {
         int voltage = 1;
         int power = 1001;
 
-        assertThrows(IllegalArgumentException.class, () -> new Connector(voltage, power, 1));
+        assertThrows(IllegalArgumentException.class, () -> new DcConnector(voltage, power, 1));
     }
 
     @Test
@@ -69,8 +69,8 @@ class ConnectorTest {
         int voltage = 1;
         int power = 1000;
 
-        Connector connector = new Connector(voltage, power, 1);
-        assertEquals(power, connector.getPowerInKW());
+        DcConnector dcConnector = new DcConnector(voltage, power, 1);
+        assertEquals(power, dcConnector.getPowerInKW());
     }
 
     @Test
@@ -79,9 +79,9 @@ class ConnectorTest {
         int power = 1000;
         int current = 1;
 
-        Connector connector = new Connector(voltage, power, current);
+        DcConnector dcConnector = new DcConnector(voltage, power, current);
 
-        assertEquals(voltage, connector.getCurrentInA());
+        assertEquals(voltage, dcConnector.getCurrentInA());
 
     }
 
@@ -91,7 +91,7 @@ class ConnectorTest {
         int power = 1000;
         int current = 0;
 
-        assertThrows(IllegalArgumentException.class, () -> new Connector(voltage, power, current));
+        assertThrows(IllegalArgumentException.class, () -> new DcConnector(voltage, power, current));
     }
 
     @Test
@@ -100,7 +100,7 @@ class ConnectorTest {
         int power = 1000;
         Integer current = null;
 
-        assertThrows(IllegalArgumentException.class, () -> new Connector(voltage, power, current));
+        assertThrows(IllegalArgumentException.class, () -> new DcConnector(voltage, power, current));
     }
 
     @Test
@@ -109,9 +109,9 @@ class ConnectorTest {
         int power = 1;
         int current = 1;
 
-        Connector connector = new Connector(voltage, power, current);
+        DcConnector dcConnector = new DcConnector(voltage, power, current);
 
-        assertTrue(connector.isValid());
+        assertTrue(dcConnector.isValid());
     }
 
     @Test
@@ -120,9 +120,9 @@ class ConnectorTest {
         int power = 1;
         int current = 2;
 
-        Connector connector = new Connector(voltage, power, current);
+        DcConnector dcConnector = new DcConnector(voltage, power, current);
 
-        assertFalse(connector.isValid());
+        assertFalse(dcConnector.isValid());
     }
 
 

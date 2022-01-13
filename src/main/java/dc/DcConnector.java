@@ -1,12 +1,12 @@
 package dc;
 
-public class Connector {
+public class DcConnector {
 
     private final Integer currentInA;
     private final int voltageInV;
     private final int powerInKW;
 
-    public Connector(int voltageInV, int powerInKW, Integer currentInA) {
+    public DcConnector(int voltageInV, int powerInKW, Integer currentInA) {
         if (voltageInV < 1 || voltageInV > 1000) {
             throw new IllegalArgumentException();
         }
